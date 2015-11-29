@@ -1,0 +1,273 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = null;
+}
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+
+    <meta charset="utf-8">
+    <meta name="format-detection" content="telephone=no" />
+    <link rel="icon" href="../../Images/favicon.ico">
+    <link rel="shortcut icon" href="../../Images/favicon.ico" />
+    <link rel="stylesheet" href="../../Content/booking.css">
+    <link rel="stylesheet" href="../../Content/camera.css">
+    <link rel="stylesheet" href="../../Content/owl.carousel.css">
+    <link rel="stylesheet" href="../../Content/style.css">
+    <script src="../../Scripts/jquery.js"></script>
+    <script src="../../Scripts/jquery-migrate-1.2.1.js"></script>
+    <script src="../../Scripts/superfish.js"></script>
+    <script src="../../Scripts/jquery.ui.totop.js"></script>
+    <script src="../../Scripts/jquery.equalheights.js"></script>
+    <script src="../../Scripts/jquery.easing.1.3.js"></script>
+    <script src="../../Scripts/owl.carousel.js"></script>
+    <script src="../../Scripts/booking.js"></script>
+    <script src="../../Scripts/camera.js"></script>
+
+
+    <script type="text/javascript" src="../../Scripts/jquery.validate-vsdoc.js"></script>
+    <script type="text/javascript" src="../../Scripts/jquery.validate.unobtrusive.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            jQuery('#camera_wrap').camera({
+                loader: false,
+                pagination: false,
+                minHeight: '444',
+                thumbnails: false,
+                height: '48.375%',
+                caption: true,
+                navigation: true,
+                fx: 'mosaic'
+            });
+            /*carousel*/
+            var owl = $("#owl");
+            owl.owlCarousel({
+                items: 2, //10 items above 1000px browser width
+                itemsDesktop: [995, 2], //5 items between 1000px and 901px
+                itemsDesktopSmall: [767, 2], // betweem 900px and 601px
+                itemsTablet: [700, 2], //2 items between 600 and 0
+                itemsMobile: [479, 1], // itemsMobile disabled - inherit from itemsTablet option
+                navigation: true,
+                pagination: false
+            });
+            $().UItoTop({ easingType: 'easeOutQuart' });
+        });
+    </script>
+
+
+
+
+</head>
+
+
+<body class="page1" id="top">
+    <!--==============================header=================================-->
+    <header>
+        <div class="container_12">
+            <div class="grid_12">
+                <div class="menu_block">
+                    <nav class="horizontal-nav full-width horizontalNav-notprocessed">
+                        <ul class="sf-menu">
+                            <li class="current"><a href="@Url.Action("Index","Index")">Accueil</a></li>
+                            <li><a href="@Url.Action("Reservation","Reservation")">Réservations</a></li>
+                            <li><a href="index-2.html">Offres speciales</a></li>
+                            <li><a href="@Url.Action("Inscription", "Utilisateur")">S'inscrire</a></li>
+                            <li><a href="@Url.Action("Contact", "Index")">Contacts</a></li>
+
+                        </ul>
+                    </nav>
+                    <div class="clear"></div>
+                </div>
+            </div>
+            <div class="grid_12">
+                <h1>
+                    <a href="index.html">
+                        <img src="../../Images/logo.png" alt="Your Happy Family">
+                    </a>
+                </h1>
+            </div>
+        </div>
+    </header>
+
+   
+
+
+
+
+
+
+<div class="slider_wrapper">
+    <div id="camera_wrap" class="">
+        <div data-src="../../Images/Slide3.jpg">
+            <div class="caption fadeIn">
+                <h2>Notre Camping</h2>
+                <div class="price">
+
+                    <span></span>
+                </div>
+                <a href="#">LEARN MORE</a>
+            </div>
+        </div>
+        <div data-src="../../Images/Slide1.jpeg">
+            <div class="caption fadeIn">
+                <h2>Notre espace tente</h2>
+                <div class="price">
+                    FROM
+                    <span>200 €</span>
+                </div>
+                <a href="#">LEARN MORE</a>
+            </div>
+        </div>
+        <div data-src="../../Images/Slide2.jpg">
+            <div class="caption fadeIn">
+                <h2>Notre espace MobileHome</h2>
+                <div class="price">
+                    FROM
+                    <span>300 €</span>
+                </div>
+                <a href="#">LEARN MORE</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!--==============================Content=================================-->
+<div class="content">
+    <div class="container_12">
+        <div class="grid_4">
+            <div class="banner">
+                <img src="../../Images/EspaceTentes.jpg" alt="">
+                <div class="label">
+                    <div class="title">Espace Tente</div>
+                    <div class="price">FROM<span>100 €</span></div>
+                    <a href="#">LEARN MORE</a>
+                </div>
+            </div>
+        </div>
+        <div class="grid_4">
+            <div class="banner">
+                <img src="../../Images/EspaceCaravanes.jpg" alt="">
+                <div class="label">
+                    <div class="title">Espace MobileHome</div>
+                    <div class="price">FROM<span>300 €</span></div>
+                    <a href="#">LEARN MORE</a>
+                </div>
+            </div>
+        </div>
+        <div class="clear"></div>
+        <div class="grid_6">
+            <!-- Formulaire de réservation -->
+            <h3>Booking Form</h3>
+
+            <form id="bookingForm">
+
+
+                <strong>Check-in</strong>
+                <label class="tmDatepicker">
+                    <input type="text" name="Check-in" placeHolder='10/11/2015'>
+                </label>
+                <div class="clear"></div>
+                <strong>Check-out</strong>
+                <label class="tmDatepicker">
+                    <input type="text" name="Check-out" placeHolder='20/11/2015'>
+                </label>
+                <div class="clear"></div>
+                <div class="tmRadio">
+                    <br />
+                    <p>Comfort</p>
+                    <input name="Comfort" type="radio" id="tmRadio0" checked />
+                    <span>Electricité</span>
+                    <input name="Comfort" type="radio" id="tmRadio1" />
+                    <span>Parking</span>
+                    <input name="Comfort" type="radio" id="tmRadio2" />
+                    <span>All-In</span>
+
+
+                </div>
+                <div class="clear"></div>
+                <div class="fl1 fl2">
+                    <em>Adultes</em>
+                    <select name="Adults" class="tmSelect auto" data-class="tmSelect tmSelect2">
+                        <option>1</option>
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                    </select>
+                    <div class="clear"></div>
+                    <em>Enfants</em>
+                    <select name="Rooms" class="tmSelect auto" data-class="tmSelect tmSelect2">
+                        <option>1</option>
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                    </select>
+                </div>
+
+                <div class="clear"></div>
+                <div class="tmTextarea">
+                    <textarea name="Message" placeHolder="Message"></textarea>
+                </div>
+                <a href="#" class="btn" data-type="submit">Submit</a>
+            </form>
+
+        </div>
+        <div class="grid_5 prefix_1">
+            <h3>Welcome</h3>
+            <img src="../../Images/welcome.jpeg" alt="" class="img_inner fleft">
+            <div class="extra_wrapper">
+                <p>Lorem ipsum dolor sit ere amet, consectetur ipiscin.</p>
+                In mollis erat mattis neque facilisis, sit ametiol
+            </div>
+            <div class="clear cl1"></div>
+            <p>Find the detailed description of this <span class="col1"><a href="http://blog.templatemonster.com/free-website-templates/" rel="dofollow">freebie</a></span> at TemplateMonster blog.</p>
+            <p><span class="col1"><a href="http://www.templatemonster.com/category/travel-website-templates/" rel="nofollow">Travel Website Templates</a></span> category offers you a variety of designs that are perfect for travel sphere of business.</p>
+            Proin pharetra luctus diam, a scelerisque eros convallis
+            <h4>Clients’ Quotes</h4>
+            <blockquote class="bq1">
+                <img src="../../Images/page1_img2.jpg" alt="" class="img_inner noresize fleft">
+                <div class="extra_wrapper">
+                    <p>Duis massa elit, auctor non pellentesque vel, aliquet sit amet erat. Nullam eget dignissim nisi, aliquam feugiat nibh. </p>
+                    <div class="alright">
+                        <div class="col1">Miranda Brown</div>
+                        <a href="#" class="btn">More</a>
+                    </div>
+                </div>
+            </blockquote>
+        </div>
+
+
+    </div>
+</div>
+   
+<!--==============================footer=================================-->
+<footer>
+    <div class="container_12">
+        <div class="grid_12">
+            <div class="socials">
+                <a href="#" class="fa fa-facebook"></a>
+                <a href="#" class="fa fa-twitter"></a>
+                <a href="#" class="fa fa-google-plus"></a>
+            </div>
+            <div class="copy">
+                Your Trip (c) 2014 | <a href="#">Privacy Policy</a>
+            </div>
+        </div>
+    </div>
+</footer>
+<script>
+            $(function (){
+                $('#bookingForm').bookingForm({
+                    ownerEmail: '#'
+                });
+            })
+            $(function() {
+                $('#bookingForm input, #bookingForm textarea').placeholder();
+            });
+</script>
+</body>
+</html>

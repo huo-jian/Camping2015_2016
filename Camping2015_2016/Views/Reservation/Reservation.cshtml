@@ -1,0 +1,113 @@
+﻿@model Camping2015_2016.Models.Reservation
+@{
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+
+
+<div class="content">
+    <div class="container_12">
+        <div class="grid_6">
+
+
+            @using (Html.BeginForm(null, null, FormMethod.Post, new { id = "bookingForm" }))
+            {
+                <fieldset>
+
+                    <div class="tmRadio">
+                        <br />
+                        <p>Comfort</p>
+                        @Html.RadioButtonFor(model => model.tente, "tente") Tente
+                        @Html.RadioButtonFor(model => model.tente, "MobileHome") Mobile Home                       
+
+                    </div>
+
+
+                    <strong>Check-in</strong>
+                    <label class="tmDatepicker">
+                        @Html.TextBoxFor(Model => Model.arrivee, new { @Name = "Check-in", @placeHolder = "10/11/2015" })
+                       
+                    </label>
+                    <div class="clear"></div>
+                    <strong>Check-out</strong>
+                    <label class="tmDatepicker">
+                        @Html.TextBoxFor(Model => Model.depart, new { @Name = "Check-out", @placeHolder = "20/11/2015" })
+                        @Html.ValidationMessageFor(model => model.depart)
+                    </label>
+                    <div class="clear"></div>
+                    <br />
+
+                    <div class="tmRadio">
+                        <p> Suppléments</p>
+
+                        @Html.Label("Parking")
+                        @Html.CheckBoxFor(m => m.supParking)
+                        @Html.Label("supElectricite")
+                        @Html.CheckBoxFor(m => m.supElectricite)
+                    </div>
+                    <div class="clear"></div>
+
+                    <div class="fl1 fl2">
+
+
+                        @Html.LabelFor(n => n.nbrAdultes)
+                        @Html.DropDownListFor(c => c.nbrAdultes, new List<SelectListItem> {
+                                                             new SelectListItem() {Text = "1", Value = "1"},
+                                                             new SelectListItem() {Text = "2", Value = "2"},
+                                                             new SelectListItem() {Text = "3", Value = "3"}}, new { @class = "tmSelect auto", data_class = "tmSelect tmSelect2", @Name = "Adults" })
+                        @Html.ValidationMessageFor(model => model.nbrAdultes)
+
+                        @Html.LabelFor(model => model.nbrEnfants)
+                        @Html.DropDownListFor(c => c.nbrEnfants, new List<SelectListItem> {
+                                                             new SelectListItem() {Text = "1", Value = "1"},
+                                                             new SelectListItem() {Text = "2", Value = "2"},
+                                                             new SelectListItem() {Text = "3", Value = "3"}}, new { @Name = "Rooms", @class = "tmSelect auto", data_class = "tmSelect tmSelect2" })
+
+                    </div>
+                    <div class="clear"></div>
+                    <br />
+                    <input type="submit" value="Ajouter" class="btn" data-type="submit" />
+                    <a href="#" class="btn" data-type="submit">Submit</a>
+                </fieldset>
+            }
+
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+        <!--==============================footer=================================-->
+        <footer>
+            <div class="container_12">
+                <div class="grid_12">
+                    <div class="socials">
+                        <a href="#" class="fa fa-facebook"></a>
+                        <a href="#" class="fa fa-twitter"></a>
+                        <a href="#" class="fa fa-google-plus"></a>
+                    </div>
+                    <div class="copy">
+                        Your Trip (c) 2014 | <a href="#">Privacy Policy</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <script>
+            $(function () {
+                $('#bookingForm').bookingForm({
+                    ownerEmail: '#'
+                });
+            })
+            $(function () {
+                $('#bookingForm input, #bookingForm textarea').placeholder();
+            });
+        </script>

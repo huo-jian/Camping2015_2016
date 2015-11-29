@@ -1,0 +1,92 @@
+﻿
+@{
+    ViewBag.Title = "Contact";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+
+
+<div class="content">
+   
+    <div class="container_12">
+        <div class="grid_5">
+            <h3>CONTACT INFO</h3>
+            <div class="map">
+                
+                <div class="clear"></div>
+                <figure class="">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2540.4011427144083!2d3.983873315958345!3d50.45225439511561!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c24f8c6d057a9b%3A0x3cd5fd540db90ee1!2sHaute+%C3%89cole+Louvain+en+Hainaut+(HELHa)+-+Mons!5e0!3m2!1sfr!2sfr!4v1448750589709" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+                </figure>
+                <address>
+                    <dl>
+                        <dt>
+                            The Company Name Inc. <br>
+                            8901 Marmora Road,<br>
+                            Glasgow, D04 89GR.
+                        </dt>
+                        <dd><span>Freephone:</span>+1 800 559 6580</dd>
+                        <dd><span>Telephone:</span>+1 800 603 6035</dd>
+                        <dd><span>FAX:</span>+1 800 889 9898</dd>
+                        <dd>E-mail: <a href="#" class="col1">mail@demolink.org</a></dd>
+                    </dl>
+                </address>
+            </div>
+        </div>
+        <div class="grid_6 prefix_1">
+            <h3>GET IN TOUCH</h3>
+            <form id="form">
+                <div class="success_wrapper">
+                    <div class="success-message">Contact form submitted</div>
+                </div>
+                <label class="name">
+                    <input type="text" placeholder="Name:"  />
+                 
+                </label>
+                <label class="email">
+                    <input type="text" placeholder="Email:"/>
+                
+                </label>
+                <label class="country">
+                    <input type="text" placeholder="Country:"/>
+                    
+                </label>
+                <label class="message">
+                    <textarea placeholder="Message:"></textarea>
+                  
+                </label>
+                <div>
+                    <div class="clear"></div>
+                    <div class="btns">
+                        <a href="#" data-type="reset" class="btn">Clear</a>
+                        <a href="#" data-type="submit" class="btn">Submit</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!--==============================footer=================================-->
+<footer>
+    <div class="container_12">
+        <div class="grid_12">
+            <div class="socials">
+                <a href="#" class="fa fa-facebook"></a>
+                <a href="#" class="fa fa-twitter"></a>
+                <a href="#" class="fa fa-google-plus"></a>
+            </div>
+            <div class="copy">
+                Your Trip (c) 2014 | <a href="#">Privacy Policy</a> | Website Template Designed by <a href="http://www.templatemonster.com/" rel="nofollow">TemplateMonster.com</a>
+            </div>
+        </div>
+    </div>
+</footer>
+<script>
+		$(function (){
+			$('#bookingForm').bookingForm({
+				ownerEmail: '#'
+			});
+		})
+</script>
+	</body>
+</html>
+

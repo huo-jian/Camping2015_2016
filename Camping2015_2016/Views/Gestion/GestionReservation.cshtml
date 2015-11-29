@@ -1,0 +1,53 @@
+﻿@model List<Camping2015_2016.Models.Reservation>
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>GEstion des données</title>
+    <style type="text/css">
+        table {
+            border-collapse: collapse;
+        }
+
+        td, th {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <tr>
+            <th>idClient</th>
+            <th> idEmplacement</th>
+            <th> Enfants </th>
+            <th>Adultes</th>
+            <th>Elec</th>
+            <th> Parking</th>
+            <th> Arrivee</th>
+            <th> depart</th>
+            <th> validation</th>
+        </tr>
+        @foreach (var emplacement in Model)
+        {
+            <tr>
+                <td>@emplacement.idClient</td>
+                <td>0</td>
+                <td>@emplacement.nbrEnfants</td>
+                <td>@emplacement.nbrAdultes</td>
+                <td>@emplacement.supElectricite</td>
+                <td>@emplacement.supParking</td>
+                <td>@emplacement.arrivee.Date</td>
+                <td>@emplacement.depart.Date</td>
+                <td>@emplacement.validation</td>
+                <td>@emplacement.tente</td>
+                
+            </tr>
+        }
+    </table>
+</body>
+</html>

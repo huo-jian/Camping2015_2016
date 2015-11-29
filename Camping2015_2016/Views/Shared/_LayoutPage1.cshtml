@@ -1,0 +1,93 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+
+    <meta charset="utf-8">
+    <meta name="format-detection" content="telephone=no" />
+    <link rel="icon" href="../../Images/favicon.ico">
+    <link rel="shortcut icon" href="../../Images/favicon.ico" />
+    <link rel="stylesheet" href="../../Content/booking.css">
+    <link rel="stylesheet" href="../../Content/camera.css">
+    <link rel="stylesheet" href="../../Content/owl.carousel.css">
+    <link rel="stylesheet" href="../../Content/style.css">
+    <script src="../../Scripts/jquery.js"></script>
+    <script src="../../Scripts/jquery-migrate-1.2.1.js"></script>
+    <script src="../../Scripts/superfish.js"></script>
+    <script src="../../Scripts/jquery.ui.totop.js"></script>
+    <script src="../../Scripts/jquery.equalheights.js"></script>
+    <script src="../../Scripts/jquery.easing.1.3.js"></script>
+    <script src="../../Scripts/owl.carousel.js"></script>
+    <script src="../../Scripts/booking.js"></script>
+    <script src="../../Scripts/camera.js"></script>
+
+
+    <script type="text/javascript" src="../../Scripts/jquery.validate-vsdoc.js"></script>
+    <script type="text/javascript" src="../../Scripts/jquery.validate.unobtrusive.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            jQuery('#camera_wrap').camera({
+                loader: false,
+                pagination: false,
+                minHeight: '444',
+                thumbnails: false,
+                height: '48.375%',
+                caption: true,
+                navigation: true,
+                fx: 'mosaic'
+            });
+            /*carousel*/
+            var owl = $("#owl");
+            owl.owlCarousel({
+                items: 2, //10 items above 1000px browser width
+                itemsDesktop: [995, 2], //5 items between 1000px and 901px
+                itemsDesktopSmall: [767, 2], // betweem 900px and 601px
+                itemsTablet: [700, 2], //2 items between 600 and 0
+                itemsMobile: [479, 1], // itemsMobile disabled - inherit from itemsTablet option
+                navigation: true,
+                pagination: false
+            });
+            $().UItoTop({ easingType: 'easeOutQuart' });
+        });
+    </script>
+
+
+
+
+</head>
+<body class="page" id="top">
+        <!--==============================header=================================-->
+        <header>
+            <div class="container_12">
+                <div class="grid_12">
+                    <div class="menu_block">
+                        <nav class="horizontal-nav full-width horizontalNav-notprocessed">
+                            <ul class="sf-menu">
+                                <li><a href="@Url.Action("Index","Index")">Accueil</a></li>
+                                <li class="current"><a href="@Url.Action("Reservation","Reservation")">Réservations</a></li>
+                                <li><a href="index-2.html">Offres speciales</a></li>
+                                <li><a href="@Url.Action("Inscription", "Utilisateur")">S'inscrire</a></li>
+                                <li><a href="@Url.Action("Contact", "Index")">Contacts</a></li>
+                            </ul>
+                        </nav>
+                        <div class="clear"></div>
+                    </div>
+                </div>
+                <div class="grid_12">
+                    <h1>
+                        <a href="index.html">
+                            <img src="../../Images/logo.png" alt="Your Happy Family">
+                        </a>
+                    </h1>
+                </div>
+            </div>
+        </header>
+
+        <div>
+            @RenderBody()
+        </div>
+    </body>
+  </html>
