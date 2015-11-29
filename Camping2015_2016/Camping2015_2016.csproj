@@ -155,6 +155,7 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\moment.min.js" />
     <Content Include="Scripts\owl.carousel.js" />
     <Content Include="Scripts\regula.js" />
     <Content Include="Scripts\superfish.js" />
@@ -196,6 +197,7 @@
     <Content Include="Views\Gestion\GestionUtilisateur.cshtml" />
     <Content Include="Views\Shared\_LayoutInscription.cshtml" />
     <Content Include="Views\Index\Contact.cshtml" />
+    <Content Include="Views\Shared\PiedPage.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

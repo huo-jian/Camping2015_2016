@@ -13,7 +13,7 @@ namespace Camping2015_2016.Tests
         {
             using (IDal dal = new Dal())
             {
-                dal.creerReservation(01, false, DateTime.Now, DateTime.Now, 2, 3, true, true, true);
+                dal.creerReservation(01, false, DateTime.Now, DateTime.Now, 2, 3, true, true, null,true);
 
                 List<Reservation> restos = dal.obtenirListeReservations();
 

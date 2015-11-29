@@ -11,75 +11,83 @@
     <meta name="viewport" content="width=device-width" />
     <title>Inscription</title>
 </head>
-<body>
-    <div> 
-
-        @using (Html.BeginForm())
-        {
-            <fieldset>
-                <div>
-                    @Html.LabelFor(model => model.nom)
-                    @Html.TextBoxFor(model => model.nom)
-                    @Html.ValidationMessageFor(model => model.nom)
-                </div>
-                <div>
-                    @Html.LabelFor(model => model.prenom)
-                    @Html.TextBoxFor(model => model.prenom)
-                    @Html.ValidationMessageFor(model => model.prenom)
-                </div>
-                <div>
-                    @Html.LabelFor(model => model.naissance)
-                    @Html.TextBoxFor(model => model.naissance)
-                    @Html.ValidationMessageFor(model => model.naissance)
-                </div>
-                <div>
-                    @Html.LabelFor(model => model.pays)
-                    @Html.TextBoxFor(model => model.pays)
-                    @Html.ValidationMessageFor(model => model.pays)
-                </div>
-                <div>
-                    @Html.LabelFor(model => model.codePostal)
-                    @Html.TextBoxFor(model => model.codePostal)
-                    @Html.ValidationMessageFor(model => model.codePostal)
-                </div>
-                <div>
-                    @Html.LabelFor(model => model.ville)
-                    @Html.TextBoxFor(model => model.ville)
-                    @Html.ValidationMessageFor(model => model.ville)
-                </div>
-
-                <div>
-                    @Html.LabelFor(model => model.rue)
-                    @Html.TextBoxFor(model => model.rue)
-                    @Html.ValidationMessageFor(model => model.rue)
-                </div>
-                <div>
-                    @Html.LabelFor(model => model.numRue)
-                    @Html.TextBoxFor(model => model.numRue)
-                    @Html.ValidationMessageFor(model => model.numRue)
-                </div>
-                <div>
-                    @Html.LabelFor(model => model.telephone)
-                    @Html.TextBoxFor(model => model.telephone)
-                    @Html.ValidationMessageFor(model => model.telephone)
-                </div>
-                <div>
-                    @Html.LabelFor(model => model.email)
-                    @Html.TextBoxFor(model => model.email)
-                    @Html.ValidationMessageFor(model => model.email)
-                </div>
-                <div>
-                    @Html.LabelFor(model => model.password)
-                    @Html.TextBoxFor(model => model.password)
-                    @Html.ValidationMessageFor(model => model.password)
-                </div>
-                
-                <br />
-                <input type="submit" value="S'inscrire" />
-             </fieldset>
 
 
-         }
-</div>
-</body>
+    <body>
+        <div class="container_12">
+            <div class="grid_8">
+                <h3>Inscription</h3>
+                      <div class="block2">
+                        @using (Html.BeginForm())
+                            {
+                                <fieldset>
+                                    <div>
+                                        @Html.LabelFor(model => model.nom)
+                                        @Html.TextBoxFor(model => model.nom)
+                                        @Html.ValidationMessageFor(model => model.nom)
+                                    </div>
+                                    <div>
+                                        @Html.LabelFor(model => model.prenom)
+                                        @Html.TextBoxFor(model => model.prenom)
+                                        @Html.ValidationMessageFor(model => model.prenom)
+                                    </div>
+                                    <div>
+                                        @Html.LabelFor(model => model.naissance)
+                                        @Html.TextBoxFor(model => model.naissance)
+                                        @Html.ValidationMessageFor(model => model.naissance)
+                                    </div>
+                                    <div>
+                                        @Html.LabelFor(model => model.pays)
+                                        @Html.TextBoxFor(model => model.pays)
+                                        @Html.ValidationMessageFor(model => model.pays)
+                                    </div>
+                                    <div>
+                                        @Html.LabelFor(model => model.codePostal)
+                                        @Html.TextBoxFor(model => model.codePostal)
+                                        @Html.ValidationMessageFor(model => model.codePostal)
+                                    </div>
+                                    <div>
+                                        @Html.LabelFor(model => model.ville)
+                                        @Html.TextBoxFor(model => model.ville)
+                                        @Html.ValidationMessageFor(model => model.ville)
+                                    </div>
+
+                                    <div>
+                                        @Html.LabelFor(model => model.rue)
+                                        @Html.TextBoxFor(model => model.rue)
+                                        @Html.ValidationMessageFor(model => model.rue)
+                                    </div>
+                                    <div>
+                                        @Html.LabelFor(model => model.numRue)
+                                        @Html.TextBoxFor(model => model.numRue)
+                                        @Html.ValidationMessageFor(model => model.numRue)
+                                    </div>
+                                    <div>
+                                        @Html.LabelFor(model => model.telephone)
+                                        @Html.TextBoxFor(model => model.telephone)
+                                        @Html.ValidationMessageFor(model => model.telephone)
+                                    </div>
+                                    <div>
+                                        @Html.LabelFor(model => model.email)
+                                        @Html.TextBoxFor(model => model.email)
+                                        @Html.ValidationMessageFor(model => model.email)
+                                    </div>
+                                    <div>
+                                        @Html.LabelFor(model => model.password)
+                                        @Html.TextBoxFor(model => model.password)
+                                        @Html.ValidationMessageFor(model => model.password)
+                                    </div>
+
+                                    <br />
+                                    <input type="submit" value="S'inscrire" />
+                                </fieldset>
+
+
+                            }
+                            </div>
+                        </div>
+            </div>
+
+                        @Html.Partial("../Shared/PiedPage");
+    </body>
 </html>

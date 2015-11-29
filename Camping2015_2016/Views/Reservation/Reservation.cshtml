@@ -4,110 +4,189 @@
 }
 
 
+<html>
 
-<div class="content">
-    <div class="container_12">
-        <div class="grid_6">
+    <body>
+        <div class="content">
+            <div class="container_12">
+                <div class="grid_8">
+                    <h3>Réservation d'un emplacement</h3>
+                    <div class="block2">
+                     
 
-
-            @using (Html.BeginForm(null, null, FormMethod.Post, new { id = "bookingForm" }))
+                        @using (Html.BeginForm(null, null, FormMethod.Post, new { @id = "bookingForm" }))
             {
-                <fieldset>
+                            <fieldset>
+                              
+                                <div class="tmRadio">
+                                    <br />
+                                    <p>Comfort</p>
+                                    @Html.RadioButtonFor(model => model.tente, "tente", new { @checked = "checked", @onchange = "change()" }) Tente
+                                    @Html.RadioButtonFor(model => model.tente, "MobileHome", new { @onchange = "change()"}) Mobile Home
+                                    
 
-                    <div class="tmRadio">
-                        <br />
-                        <p>Comfort</p>
-                        @Html.RadioButtonFor(model => model.tente, "tente") Tente
-                        @Html.RadioButtonFor(model => model.tente, "MobileHome") Mobile Home                       
-
-                    </div>
-
-
-                    <strong>Check-in</strong>
-                    <label class="tmDatepicker">
-                        @Html.TextBoxFor(Model => Model.arrivee, new { @Name = "Check-in", @placeHolder = "10/11/2015" })
-                       
-                    </label>
-                    <div class="clear"></div>
-                    <strong>Check-out</strong>
-                    <label class="tmDatepicker">
-                        @Html.TextBoxFor(Model => Model.depart, new { @Name = "Check-out", @placeHolder = "20/11/2015" })
-                        @Html.ValidationMessageFor(model => model.depart)
-                    </label>
-                    <div class="clear"></div>
-                    <br />
-
-                    <div class="tmRadio">
-                        <p> Suppléments</p>
-
-                        @Html.Label("Parking")
-                        @Html.CheckBoxFor(m => m.supParking)
-                        @Html.Label("supElectricite")
-                        @Html.CheckBoxFor(m => m.supElectricite)
-                    </div>
-                    <div class="clear"></div>
-
-                    <div class="fl1 fl2">
+                                </div>
 
 
-                        @Html.LabelFor(n => n.nbrAdultes)
-                        @Html.DropDownListFor(c => c.nbrAdultes, new List<SelectListItem> {
+                                <strong>Check-in</strong>
+                                <label class="tmDatepicker">
+                                    @Html.TextBoxFor(Model => Model.arrivee, new {@id="Check-in", @Name = "Check-in", @placeHolder = "20/11/2015" })
+
+                                </label>
+                                <div class="clear"></div>
+                                <strong>Check-out</strong>
+                                <label class="tmDatepicker">
+                                    @Html.TextBoxFor(Model => Model.depart, new { @id="Check-out",@Name = "Check-out", @placeHolder = "25/11/2015" })
+
+                                </label>
+                                <div class="clear"></div>
+                                <br />
+
+
+                                <div>
+                                    <p> Suppléments</p>
+                             
+                                    @Html.Label("Parking")
+                                    @Html.CheckBoxFor(m => m.supParking, new {@id="parking", @onclick = "change()"})
+                                    @Html.Label("Electricite")
+                                    @Html.CheckBoxFor(m => m.supElectricite, new { @id = "elec", @onclick = "change()" })
+                                </div>
+                                <div class="clear"></div>
+
+                                <div class="fl1 fl2">
+
+
+                                    @Html.Label("Nombre d'adultes")
+                                    @Html.DropDownListFor(c => c.nbrAdultes, new List<SelectListItem> {
+                                                             new SelectListItem() {Text = " ", Value = "0"},
+                                                             new SelectListItem() {Text = "0", Value = "0"},
                                                              new SelectListItem() {Text = "1", Value = "1"},
                                                              new SelectListItem() {Text = "2", Value = "2"},
-                                                             new SelectListItem() {Text = "3", Value = "3"}}, new { @class = "tmSelect auto", data_class = "tmSelect tmSelect2", @Name = "Adults" })
-                        @Html.ValidationMessageFor(model => model.nbrAdultes)
+                                                             new SelectListItem() {Text = "3", Value = "3"}}, new { @class = "tmSelect auto", @data_class = "tmSelect tmSelect2", @id = "adultes", @onchange = "change()" })
+                                    @Html.ValidationMessageFor(model => model.nbrAdultes)
 
-                        @Html.LabelFor(model => model.nbrEnfants)
-                        @Html.DropDownListFor(c => c.nbrEnfants, new List<SelectListItem> {
+                                    @Html.Label("Nombre d'enfants")
+                                    @Html.DropDownListFor(c => c.nbrEnfants, new List<SelectListItem> {
+                                                             new SelectListItem() {Text = " ", Value = "0"},
+                                                             new SelectListItem() {Text = "0", Value = "0"},
                                                              new SelectListItem() {Text = "1", Value = "1"},
                                                              new SelectListItem() {Text = "2", Value = "2"},
-                                                             new SelectListItem() {Text = "3", Value = "3"}}, new { @Name = "Rooms", @class = "tmSelect auto", data_class = "tmSelect tmSelect2" })
+                                                             new SelectListItem() {Text = "3", Value = "3"}}, new { @id = "enfants", @class = "tmSelect auto", @data_class = "tmSelect tmSelect2", @onchange = "change()" })
 
+                                </div>
+
+                                
+                                <div class="clear"></div>
+                                <br />
+                                <input type="submit" value="Ajouter" class="btn" data-type="submit" />
+                                <a href="#" class="btn" data-type="submit">Submit</a>
+                            </fieldset>
+                        }
+                        </div>
                     </div>
-                    <div class="clear"></div>
-                    <br />
-                    <input type="submit" value="Ajouter" class="btn" data-type="submit" />
-                    <a href="#" class="btn" data-type="submit">Submit</a>
-                </fieldset>
-            }
 
+                <div class="grid_3 prefix_1">
+                    <h5>Prix </h5>
+                    
+                    <ul class="list">
+                        
+                        <li><p><u> Type </u></p>
+                        @Html.Label("Tente", new { @id = "typeEmplacement" })
+
+                        @Html.Label("15€/nuit", new { @id = "prixEmplacement" })<br /><br /></li>
+                                       
+                        
+                        
+
+                        <li><p><u> Durée </u></p>
+                        @Html.Label(" ", new { @id = "duree" })<br /><br /></li>
+
+                        
+
+                        <li><p><u> Suppléments</u></p>
+
+
+                        @Html.Label(" ", new { @id = "prixParking" }) <br /><br />
+                        @Html.Label(" ", new { @id = "prixElec" })<br /></li>
+
+
+                        <li><p><u> Nombre de personnes</u></p>
+                        @Html.Label("Adultes : ", new { @id = "prixAdultes"}) <br />
+                        @Html.Label("Enfants : ", new { @id = "prixEnfants"})</li>
+                        
+                    </ul>
+                    <a href="#" class="link1">VIEW A<span class="low">ll</span></a>
+                </div>
         </div>
     </div>
-</div>
 
 
+        @Html.Partial("../Shared/PiedPage");
+
+    </body>
+</html>
+
+<script>
+    function change() {
+        
+        if (document.getElementById("tente").checked) {
+            document.getElementById("typeEmplacement").innerHTML = "Tente";
+            document.getElementById("prixEmplacement").innerHTML = "15€/nuit";
+        }
+        else {
+
+            document.getElementById("typeEmplacement").innerHTML = "MobileHome";
+            document.getElementById("prixEmplacement").innerHTML = "30€/nuit";
+
+        }
+
+        if (document.getElementById("parking").checked) {
+            document.getElementById("prixParking").innerHTML = "Parking 5€/jour";
+        }
+        else {
+            document.getElementById("prixParking").innerHTML = " ";
+        }
 
 
+        if (document.getElementById("elec").checked)
+        { document.getElementById("prixElec").innerHTML = "Electricité 5€/jour"; }
+        else
+        { document.getElementById("prixElec").innerHTML = " "; }
+    
+        document.getElementById("prixAdultes").innerHTML = "Adultes : " + document.getElementById("adultes").value;
+        document.getElementById("prixEnfants").innerHTML = "Enfants : " + document.getElementById("enfants").value;
 
 
+            
+        calculDate();
+
+    }
+
+    function calculDate() {
+        
+
+        var d1 = (document.getElementById("Check-in").value).split("/");
+        var a= new Date(parseInt(d1[2]), parseInt(d1[1])-1, parseInt(d1[0]));
+    
+        var d2 = (document.getElementById("Check-out").value).split("/");
+        var b = new Date(parseInt(d2[2]), parseInt(d2[1])-1, parseInt(d2[0]));
+    
+        var _MS_PER_DAY = 1000 * 60 * 60 * 24;
+           
+        var utc1 = Date.UTC(a.getFullYear(), a.getMonth(), a.getDate());
+        var utc2 = Date.UTC(b.getFullYear(), b.getMonth(), b.getDate());
+
+        if(!isNaN(Math.floor((utc2 - utc1))))
+            document.getElementById("duree").innerHTML = Math.floor((utc2 - utc1) / _MS_PER_DAY) + " jours";
+        else
+            document.getElementById("duree").innerHTML = " ";
+    
+    }
+
+   
 
 
+    
 
+</script>
 
-
-
-        <!--==============================footer=================================-->
-        <footer>
-            <div class="container_12">
-                <div class="grid_12">
-                    <div class="socials">
-                        <a href="#" class="fa fa-facebook"></a>
-                        <a href="#" class="fa fa-twitter"></a>
-                        <a href="#" class="fa fa-google-plus"></a>
-                    </div>
-                    <div class="copy">
-                        Your Trip (c) 2014 | <a href="#">Privacy Policy</a>
-                    </div>
-                </div>
-            </div>
-        </footer>
-        <script>
-            $(function () {
-                $('#bookingForm').bookingForm({
-                    ownerEmail: '#'
-                });
-            })
-            $(function () {
-                $('#bookingForm input, #bookingForm textarea').placeholder();
-            });
-        </script>

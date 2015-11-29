@@ -260,6 +260,7 @@ textarea::-moz-placeholder
   height: 15px;
   cursor: pointer;
 }
+
 .tmRadio {
   padding-left: 0;
 }
@@ -301,8 +302,8 @@ textarea::-moz-placeholder
   color: #adaeaf;
 }
 .tmRadio .checked:after {
-  content: '\f05d';
-  color: #98a6b3;
+   content: '\f05d';
+   color: #98a6b3;
 }
 /* Checkbox */
 .trans-element-checkbox {
