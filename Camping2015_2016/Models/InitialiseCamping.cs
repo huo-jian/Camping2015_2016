@@ -23,8 +23,6 @@ namespace Camping2015_2016.Models
             for (int i = 0; i < 3; i++)
                 context.listeEmplacements.Add(new Emplacement(false, true)); //mobileHome avec parking
 
-            
-
 
             base.Seed(context);
         }
