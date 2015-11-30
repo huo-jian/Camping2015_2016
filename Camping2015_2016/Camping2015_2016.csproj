@@ -155,7 +155,6 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
-    <Content Include="Scripts\moment.min.js" />
     <Content Include="Scripts\owl.carousel.js" />
     <Content Include="Scripts\regula.js" />
     <Content Include="Scripts\superfish.js" />
@@ -166,6 +165,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\GestionController.cs" />
     <Compile Include="Controllers\IndexController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\ReservationController.cs" />
     <Compile Include="Controllers\UtilisateurController.cs" />
     <Compile Include="Global.asax.cs">
@@ -178,10 +178,13 @@
     <Compile Include="Models\InitialiseCamping.cs" />
     <Compile Include="Models\Reservation.cs" />
     <Compile Include="Models\Utilisateur.cs" />
+    <Compile Include="Models\UtilisateurViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\web.config" />
+    <Content Include="Views\web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="packages.config" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -198,6 +201,7 @@
     <Content Include="Views\Shared\_LayoutInscription.cshtml" />
     <Content Include="Views\Index\Contact.cshtml" />
     <Content Include="Views\Shared\PiedPage.cshtml" />
+    <Content Include="Views\Login\LoginIndex.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

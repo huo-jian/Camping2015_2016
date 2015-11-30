@@ -16,6 +16,10 @@ namespace Camping2015_2016.Models
         void creerUtilisateur(string nom, string prenom, string email, string password, string rue, int numRue, int codePostal, string ville, string pays, string naissance);
         Emplacement obtenirEmplacementLibre(bool tente);
         void reserverEmplacement(Emplacement e);
+        Utilisateur authentifier(string email, string password);
+        Utilisateur getUtilisateur(string email);
+
+        
 
     }
 }

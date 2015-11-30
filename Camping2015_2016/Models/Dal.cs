@@ -78,6 +78,34 @@ namespace Camping2015_2016.Models
             maBaseDD.SaveChanges();
         }
 
-        
+        public Utilisateur authentifier(string email, string password)
+        {
+            List<Utilisateur> liste = obtenirListeUtilisateurs();
+
+            foreach(Utilisateur u in liste)
+            {
+                if(u.email == email && u.password == password)
+                {
+                    // l'utilisateur existe bien
+                    return u;
+                }
+            }
+            return null;
+        }
+
+        public Utilisateur getUtilisateur(string email)
+        {
+            List<Utilisateur> liste = obtenirListeUtilisateurs();
+            foreach (Utilisateur u in liste)
+            {
+                if (u.email == email)
+                {
+                    return u;
+                }
+            }
+            return null;
+
+        }
+
     }
 }

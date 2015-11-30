@@ -7,8 +7,10 @@ using System.Web.Mvc;
 
 namespace Camping2015_2016.Controllers
 {
+    
     public class ReservationController : Controller
     {
+        [Authorize]
         public ActionResult Reservation()
         {
             return View();

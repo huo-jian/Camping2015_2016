@@ -1,0 +1,52 @@
+﻿@model Camping2015_2016.Models.UtilisateurViewModel
+@{
+    Layout = Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+
+<div class="content">
+    <div class="container_12">
+        <div class="grid_8">
+            <h3>Authentification</h3>
+            <div class="block2">
+                @if (Model.authentifie)
+                {
+                    <h3>
+                        Vous êtes déjà authentifié avec le login :
+
+                    </h3>
+                    @Html.ActionLink("Voulez-vous vous déconnecter ?", "Deconnexion")
+                }
+                else
+                {
+                    <p>
+                        Veuillez vous authentifier :
+                    </p>
+                    using (Html.BeginForm())
+                    {
+                        <div>
+                            @Html.LabelFor(m => m.utilisateur.email)
+                            @Html.TextBoxFor(m => m.utilisateur.email)
+                            @Html.ValidationMessageFor(m => m.utilisateur.email)
+                        </div>
+                        <div>
+                            @Html.LabelFor(m => m.utilisateur.password)
+                            @Html.PasswordFor(m => m.utilisateur.password)
+                            @Html.ValidationMessageFor(m => m.utilisateur.password)
+
+
+                        </div>
+                        <input type="submit" value="Se connecter" />
+                        <br />
+                        <a href="@Url.Action("Inscription", "Utilisateur")" class="btn" data-type="submit">Creer un compte</a>
+                        <a href="#" class="btn" data-type="submit">Submit</a>
+
+                    }
+                }
+</div>
+            </div>
+        </div>
+    </div>
+
+
+                @Html.Partial("../Shared/PiedPage");

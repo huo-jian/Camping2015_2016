@@ -12,7 +12,7 @@ namespace Camping2015_2016.Controllers
     {
         public ActionResult Inscription()
         {
-            System.Diagnostics.Debug.WriteLine("controleur");
+           
             return View();
         }
 
@@ -33,8 +33,6 @@ namespace Camping2015_2016.Controllers
                 }
 
                 dal.creerUtilisateur(u.nom, u.prenom, u.email, u.password, u.rue, u.numRue, u.codePostal, u.ville, u.pays, u.naissance,u.telephone);
-                System.Diagnostics.Debug.WriteLine(u.nom);
-                System.Diagnostics.Debug.WriteLine("Bonjour");
                 return RedirectToAction("Index");
             }
 

@@ -4,9 +4,7 @@
 }
 
 
-<html>
 
-    <body>
         <div class="content">
             <div class="container_12">
                 <div class="grid_8">
@@ -78,8 +76,10 @@
                                 
                                 <div class="clear"></div>
                                 <br />
-                                <input type="submit" value="Ajouter" class="btn" data-type="submit" />
-                                <a href="#" class="btn" data-type="submit">Submit</a>
+                                <input type="submit" value="Ajouter" class="btn" />
+
+                                
+                                <a href="#" class="btn1" data-type="submit">Submit</a>
                             </fieldset>
                         }
                         </div>
@@ -113,9 +113,12 @@
                         <li><p><u> Nombre de personnes</u></p>
                         @Html.Label("Adultes : ", new { @id = "prixAdultes"}) <br />
                         @Html.Label("Enfants : ", new { @id = "prixEnfants"})</li>
+
+                        <li> <p><u> Total </u></p>
+                        @Html.Label(" ", new { @id = "prixTotal" })</li>
                         
                     </ul>
-                    <a href="#" class="link1">VIEW A<span class="low">ll</span></a>
+                   
                 </div>
         </div>
     </div>
@@ -123,25 +126,29 @@
 
         @Html.Partial("../Shared/PiedPage");
 
-    </body>
-</html>
+ 
 
 <script>
     function change() {
         
+        var prixTotal = 0;
+
         if (document.getElementById("tente").checked) {
             document.getElementById("typeEmplacement").innerHTML = "Tente";
             document.getElementById("prixEmplacement").innerHTML = "15€/nuit";
+            prixTotal += 15;
         }
         else {
 
             document.getElementById("typeEmplacement").innerHTML = "MobileHome";
             document.getElementById("prixEmplacement").innerHTML = "30€/nuit";
+            prixTotal += 30;
 
         }
 
         if (document.getElementById("parking").checked) {
             document.getElementById("prixParking").innerHTML = "Parking 5€/jour";
+            prixTotal += 5;
         }
         else {
             document.getElementById("prixParking").innerHTML = " ";
@@ -149,16 +156,24 @@
 
 
         if (document.getElementById("elec").checked)
-        { document.getElementById("prixElec").innerHTML = "Electricité 5€/jour"; }
+        {
+            document.getElementById("prixElec").innerHTML = "Electricité 5€/jour";
+            prixTotal += 5;
+        }
         else
         { document.getElementById("prixElec").innerHTML = " "; }
     
         document.getElementById("prixAdultes").innerHTML = "Adultes : " + document.getElementById("adultes").value;
         document.getElementById("prixEnfants").innerHTML = "Enfants : " + document.getElementById("enfants").value;
+        
 
 
             
-        calculDate();
+        var nbrJours = calculDate();
+        prixTotal *= nbrJours;
+
+        if(!isNaN(prixTotal))
+            document.getElementById("prixTotal").innerHTML = prixTotal + "€ ";
 
     }
 
@@ -180,6 +195,8 @@
             document.getElementById("duree").innerHTML = Math.floor((utc2 - utc1) / _MS_PER_DAY) + " jours";
         else
             document.getElementById("duree").innerHTML = " ";
+
+        return Math.floor((utc2 - utc1) / _MS_PER_DAY);
     
     }
 

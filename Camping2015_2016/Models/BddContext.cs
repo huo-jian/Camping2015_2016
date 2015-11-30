@@ -11,5 +11,6 @@ namespace Camping2015_2016.Models
         public DbSet<Emplacement> listeEmplacements { get; set; }
         public DbSet<Reservation> listeReservations { get; set; }
         public DbSet<Utilisateur> listeUtilisateurs { get; set; }
+        //public UtilisateurViewModel utilisateurViewModel { get; set; }
     }
 }
