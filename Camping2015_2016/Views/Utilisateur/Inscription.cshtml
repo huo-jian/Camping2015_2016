@@ -12,17 +12,17 @@
 
                 <div class="container_12">
                     <div class="grid_8">
-                        <h3>Inscription</h3>
                         <div class="block2">
 
 
                             
-
-                        
-                        
-
-                            using (Html.BeginForm())
+                            @if (!HttpContext.Current.User.Identity.IsAuthenticated)
                             {
+                                <h3>Inscription</h3>
+
+
+                                using (Html.BeginForm())
+                                {
                                 <fieldset>
                                     <div>
                                         @Html.LabelFor(model => model.nom)
@@ -87,7 +87,8 @@
 
 
                             }
-                        
+                            }
+
                         </div>
                     </div>
                 </div>

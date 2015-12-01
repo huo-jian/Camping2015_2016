@@ -10,6 +10,18 @@ namespace Camping2015_2016.Controllers
     
     public class ReservationController : Controller
     {
+        private IDal dal;
+
+        public ReservationController() : this(new Dal())
+        {
+
+        }
+
+        public ReservationController(Dal dal)
+        {
+            this.dal = dal;
+        }
+
         [Authorize]
         public ActionResult Reservation()
         {
@@ -44,8 +56,16 @@ namespace Camping2015_2016.Controllers
 
                 if (e != null)
                 {
-                    dal.creerReservation(02, tente, arrivee, depart, nbrAdultes, nbrEnfants, supParking, supElec, e, false);
-                    dal.reserverEmplacement(e);
+                    //creer la reservation et l'ajouter à l'utilisateur courant
+                    if (HttpContext.User.Identity.IsAuthenticated)
+                    {
+                        
+                        int idUtilisateur = int.Parse(HttpContext.User.Identity.Name);
+                        dal.creerReservation(e.Id,idUtilisateur, tente, arrivee, depart, nbrAdultes, nbrEnfants, supParking, supElec, false);
+                        dal.reserverEmplacement(e);
+                    }
+
+                 
                    
                 }
 

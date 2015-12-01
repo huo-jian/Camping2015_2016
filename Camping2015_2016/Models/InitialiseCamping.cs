@@ -24,6 +24,23 @@ namespace Camping2015_2016.Models
                 context.listeEmplacements.Add(new Emplacement(false, true)); //mobileHome avec parking
 
 
+            //creer un utilisateur et lui ajouter une reservation
+
+
+            Utilisateur a = new Utilisateur("Verhelle", "Romain", "the_bresilien@hotmail.fr", "dd", "rue", 5, 6, "Mons", "Belgique", "09/09/2000");
+         
+            
+            
+            //on la rajoute a l'utilisateur
+            
+
+            // on rajoute l'utilisateur à la base
+            context.listeUtilisateurs.Add(a);
+
+            System.Diagnostics.Debug.WriteLine("Ici" + "\n\n\n" + context.listeUtilisateurs.Local.Count + "\n\n\n");
+
+            
+
             base.Seed(context);
         }
     }

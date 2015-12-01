@@ -41,9 +41,19 @@
                     <nav class="horizontal-nav full-width horizontalNav-notprocessed">
                         <ul class="sf-menu">
                             <li><a href="@Url.Action("Index","Index")">Accueil</a></li>
-                            <li class="current"><a href="@Url.Action("Reservation","Reservation")">Réservations</a></li>
-                            <li><a href="index-2.html">Offres speciales</a></li>
-                            <li><a href="@Url.Action("Inscription", "Utilisateur")">S'inscrire</a></li>
+                            <li><a href="@Url.Action("Reservation","Reservation")">Réservations</a></li>
+                            <li><a href="index-2.html">A faire</a></li>
+                            <li class="current">
+                                @if (!HttpContext.Current.User.Identity.IsAuthenticated)
+                                {
+                                    <a href="@Url.Action("Inscription", "Utilisateur")">S'inscrire</a>
+                                }
+                                else
+                                {
+                                    <a href="@Url.Action("Gestion", "Gestion")">Gestion du compte</a>
+
+                                }
+                            </li>
                             <li><a href="@Url.Action("Contact", "Index")">Contacts</a></li>
 
                         </ul>
@@ -54,7 +64,7 @@
             <div class="grid_12">
                 <h1>
                     <a href="index.html">
-                        <img src="../../Images/logo.png" alt="Your Happy Family">
+                        <img src="../../Images/logo.png">
                     </a>
                 </h1>
             </div>

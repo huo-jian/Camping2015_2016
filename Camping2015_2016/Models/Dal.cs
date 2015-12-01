@@ -22,20 +22,27 @@ namespace Camping2015_2016.Models
             return maBaseDD.listeEmplacements.ToList();
         }
 
-        public List<Reservation> obtenirListeReservations()
-        {
-            return maBaseDD.listeReservations.ToList();
-        }
+   
 
         public List<Utilisateur> obtenirListeUtilisateurs()
         {
             return maBaseDD.listeUtilisateurs.ToList();
         }
 
-
-        public void creerReservation(int idClient, bool tente, DateTime arrivee, DateTime depart, int nbrAdultes, int nbrEnfants, bool supParking, bool supElectricite, Emplacement e, bool validation)
+        public List<Reservation> obtenirListeReservations()
         {
-            maBaseDD.listeReservations.Add(new Reservation(idClient, tente, arrivee, depart, nbrAdultes, nbrEnfants, supParking, supElectricite, e,validation));
+            return maBaseDD.listeReservations.ToList();
+        }
+
+
+        public void creerReservation(int idEmplacement, int idUtilisateur, bool tente, DateTime arrivee, DateTime depart, int nbrAdultes, int nbrEnfants, bool supParking, bool supElectricite, bool validation)
+        {
+            //la creer dans la base et l'ajouter dans la liste des reservations d'un utilisateur
+            Reservation r = new Reservation(tente, arrivee, depart, nbrAdultes, nbrEnfants, supParking, supElectricite, validation);
+            r.utilisateur = getUtilisateur(idUtilisateur);
+            r.emplacement = getEmplacement(idEmplacement);
+
+            maBaseDD.listeReservations.Add(r);
             maBaseDD.SaveChanges();
         }
 
@@ -56,6 +63,8 @@ namespace Camping2015_2016.Models
         public void Dispose()
         {
             maBaseDD.Dispose();
+
+            
         }
 
         public Emplacement obtenirEmplacementLibre(bool tente)
@@ -71,6 +80,22 @@ namespace Camping2015_2016.Models
 
             return null;
         }
+
+        public Emplacement getEmplacement(int id)
+        {
+            List<Emplacement> liste = obtenirListeEmplacements();
+
+            foreach (Emplacement e in liste)
+            {
+                if (e.Id == id)
+                    return e;
+
+            }
+
+            return null;
+
+        }
+
 
         public void reserverEmplacement(Emplacement e)
         {
@@ -106,6 +131,22 @@ namespace Camping2015_2016.Models
             return null;
 
         }
+
+        public Utilisateur getUtilisateur(int id)
+        {
+            List<Utilisateur> liste = obtenirListeUtilisateurs();
+            foreach (Utilisateur u in liste)
+            {
+                if (u.id == id)
+                {
+                    return u;
+                }
+            }
+            return null;
+
+        }
+
+       
 
     }
 }

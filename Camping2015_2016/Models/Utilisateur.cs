@@ -47,7 +47,7 @@ namespace Camping2015_2016.Models
         [Required(ErrorMessage = "Champ obligatoire")] //[RegularExpression(@"^0[0-9]{9}$", ErrorMessage = "Numero invalide")] Ne fonctionne pas 
         public int telephone { get; set; }
 
-        public List<Reservation> listeReservations { get; set; }
+
 
 
 
@@ -74,8 +74,10 @@ namespace Camping2015_2016.Models
             this.ville = ville;
             this.pays = pays;
             this.naissance = naissance;
-            
+
         }
+
+
 
        
     }

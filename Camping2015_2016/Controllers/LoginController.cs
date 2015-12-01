@@ -24,12 +24,14 @@ namespace Camping2015_2016.Controllers
 
         public ActionResult LoginIndex()
         {
-            System.Diagnostics.Debug.WriteLine("loginIndex() !");
+
             UtilisateurViewModel viewModel = new UtilisateurViewModel { authentifie = HttpContext.User.Identity.IsAuthenticated };
             if (HttpContext.User.Identity.IsAuthenticated)
             {
-                System.Diagnostics.Debug.WriteLine("estAuthentifié !");
+                
                 viewModel.utilisateur = dal.getUtilisateur(HttpContext.User.Identity.Name);
+
+
             }
             return View(viewModel);
         }

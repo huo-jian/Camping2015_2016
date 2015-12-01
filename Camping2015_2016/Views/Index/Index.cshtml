@@ -75,7 +75,16 @@
                             <li class="current"><a href="@Url.Action("Index","Index")">Accueil</a></li>
                             <li><a href="@Url.Action("Reservation","Reservation")">Réservations</a></li>
                             <li><a href="index-2.html">Offres speciales</a></li>
-                            <li><a href="@Url.Action("Inscription", "Utilisateur")">S'inscrire</a></li>
+                            <li class="current">
+                                @if (!HttpContext.Current.User.Identity.IsAuthenticated)
+                                {
+                                    <a href="@Url.Action("Inscription", "Utilisateur")">S'inscrire</a>
+                                }
+                                else
+                                {
+                                    <a href="@Url.Action("Gestion", "Gestion")">Gestion du compte</a>
+
+                                }
                             <li><a href="@Url.Action("Contact", "Index")">Contacts</a></li>
 
                         </ul>
@@ -137,112 +146,60 @@
 
 
 <!--==============================Content=================================-->
-<div class="content">
-    <div class="container_12">
-        <div class="grid_4">
-            <div class="banner">
-                <img src="../../Images/EspaceTentes.jpg" alt="">
-                <div class="label">
-                    <div class="title">Espace Tente</div>
-                    <div class="price">FROM<span>100 €</span></div>
-                    <a href="#">LEARN MORE</a>
-                </div>
-            </div>
-        </div>
-        <div class="grid_4">
-            <div class="banner">
-                <img src="../../Images/EspaceCaravanes.jpg" alt="">
-                <div class="label">
-                    <div class="title">Espace MobileHome</div>
-                    <div class="price">FROM<span>300 €</span></div>
-                    <a href="#">LEARN MORE</a>
-                </div>
-            </div>
-        </div>
-        <div class="clear"></div>
-        <div class="grid_6">
-            <!-- Formulaire de réservation -->
-            <h3>Booking Form</h3>
-
-            <form id="bookingForm">
+    <div class="content">
+        <div class="container_12">
 
 
-                <strong>Check-in</strong>
-                <label class="tmDatepicker">
-                    <input type="text" name="Check-in" placeHolder='10/11/2015'>
-                </label>
-                <div class="clear"></div>
-                <strong>Check-out</strong>
-                <label class="tmDatepicker">
-                    <input type="text" name="Check-out" placeHolder='20/11/2015'>
-                </label>
-                <div class="clear"></div>
-                <div class="tmRadio">
+
+
+            <div class="grid_7">
+                <br />
+                <br />
+                <br />
+                <br />
+                <div class="banner">
+                    <img src="../../Images/EspaceTentes.jpg" alt="">
                     <br />
-                    <p>Comfort</p>
-                    <input name="Comfort" type="radio" id="tmRadio0" checked />
-                    <span>Electricité</span>
-                    <input name="Comfort" type="radio" id="tmRadio1" />
-                    <span>Parking</span>
-                    <input name="Comfort" type="radio" id="tmRadio2" />
-                    <span>All-In</span>
-
-
-                </div>
-                <div class="clear"></div>
-                <div class="fl1 fl2">
-                    <em>Adultes</em>
-                    <select name="Adults" class="tmSelect auto" data-class="tmSelect tmSelect2">
-                        <option>1</option>
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
-                    </select>
-                    <div class="clear"></div>
-                    <em>Enfants</em>
-                    <select name="Rooms" class="tmSelect auto" data-class="tmSelect tmSelect2">
-                        <option>1</option>
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
-                    </select>
+                    <br />
                 </div>
 
-                <div class="clear"></div>
-                <div class="tmTextarea">
-                    <textarea name="Message" placeHolder="Message"></textarea>
-                </div>
-                <a href="#" class="btn" data-type="submit">Submit</a>
-            </form>
+                <div class="banner">
+                    <br />
+                    <br />
+                    <img src="../../Images/EspaceCaravanes.jpg" alt="">
 
-        </div>
-        <div class="grid_5 prefix_1">
-            <h3>Welcome</h3>
-            <img src="../../Images/welcome.jpeg" alt="" class="img_inner fleft">
-            <div class="extra_wrapper">
-                <p>Lorem ipsum dolor sit ere amet, consectetur ipiscin.</p>
-                In mollis erat mattis neque facilisis, sit ametiol
+                </div>
+
+                <div class="banner">
+                <br />
+                <br />
+                <img src="../../Images/CampingAffiche.jpg" alt="">
+
             </div>
-            <div class="clear cl1"></div>
-            <p>Find the detailed description of this <span class="col1"><a href="http://blog.templatemonster.com/free-website-templates/" rel="dofollow">freebie</a></span> at TemplateMonster blog.</p>
-            <p><span class="col1"><a href="http://www.templatemonster.com/category/travel-website-templates/" rel="nofollow">Travel Website Templates</a></span> category offers you a variety of designs that are perfect for travel sphere of business.</p>
-            Proin pharetra luctus diam, a scelerisque eros convallis
-            <h4>Clients’ Quotes</h4>
-            <blockquote class="bq1">
-                <img src="../../Images/page1_img2.jpg" alt="" class="img_inner noresize fleft">
-                <div class="extra_wrapper">
-                    <p>Duis massa elit, auctor non pellentesque vel, aliquet sit amet erat. Nullam eget dignissim nisi, aliquam feugiat nibh. </p>
-                    <div class="alright">
-                        <div class="col1">Miranda Brown</div>
-                        <a href="#" class="btn">More</a>
+                
+            </div> 
+            <div class="grid_3 prefix_1">
+                <h3>Welcome</h3>
+                <div>
+                <img src="../../Images/welcome.jpeg" alt="" class="img_inner fleft">
                     </div>
+                <div class="clear cl1"></div>
+                <div>
+                    <p> <br />Bienvenue sur notre site Camping ! Nous vous proposons differents emplacements variés, un accueil de qualité et différents aménagement comme un parking mais aussi une piscine . </p>
                 </div>
-            </blockquote>
-        </div>
+                <div class="clear cl1"></div>
+                <div>
+                    Chalets ou Mobil Homes 2 ou 3 chambres, pour 1 à 6 personnes... Nos hébergements locatifs vous offrent tout le confort d’un hébergement entièrement équipé et bien pensé. 
+                </div>
+                
+                
+              
+            </div>
 
 
     </div>
-</div>
+        </div>
+
    
     @Html.Partial("../Shared/PiedPage");
 </body>

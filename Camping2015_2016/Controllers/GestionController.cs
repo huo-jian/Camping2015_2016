@@ -9,34 +9,33 @@ namespace Camping2015_2016.Controllers
 {
     public class GestionController : Controller
     {
+        private IDal dal;
+
+        public GestionController() : this(new Dal())
+        {
+
+        }
+
+        public GestionController(Dal dal)
+        {
+            this.dal = dal;
+        }
+
+
         // GET: Gestion
         public ActionResult Gestion()
         {
-            using (IDal dal = new Dal())
-            {
-                List<Emplacement> listeDesEmplacements = dal.obtenirListeEmplacements();
-                return View(listeDesEmplacements);
-            }
+
+            var viewModel = new GestionViewModel();
+            viewModel.emplacements = dal.obtenirListeEmplacements();
+            viewModel.reservations = dal.obtenirListeReservations();
+            viewModel.utilisateurs = dal.obtenirListeUtilisateurs();
+
+
+            return View(viewModel);
+            
         }
 
-        // GET: GestionReservation
-        public ActionResult GestionReservation()
-        {
-
-            using (IDal dal = new Dal())
-            {
-                List<Reservation> listeDesReservations = dal.obtenirListeReservations();
-                return View(listeDesReservations);
-            }
-        }
-
-        public ActionResult GestionUtilisateur()
-        {
-            using (IDal dal = new Dal())
-            {
-                List<Utilisateur> listeDesUtilisateurs = dal.obtenirListeUtilisateurs();
-                return View(listeDesUtilisateurs);
-            }
-        }
+        
     }
 }

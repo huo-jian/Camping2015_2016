@@ -114,6 +114,7 @@
     <Content Include="Global.asax" />
     <Content Include="Images\arrows.png" />
     <Content Include="Images\camera-loader.gif" />
+    <Content Include="Images\CampingAffiche.jpg" />
     <Content Include="Images\capt_a.png" />
     <Content Include="Images\EspaceCaravanes.jpg" />
     <Content Include="Images\EspaceTentes.jpg" />
@@ -121,7 +122,6 @@
     <Content Include="Images\marker.png" />
     <Content Include="Images\mebu_sep.png" />
     <Content Include="Images\menu_bg.png" />
-    <Content Include="Images\page1_img2.jpg" />
     <Content Include="Images\prevnext.png" />
     <Content Include="Images\quotes.png" />
     <Content Include="Images\Slide1.jpeg" />
@@ -173,6 +173,7 @@
     </Compile>
     <Compile Include="Models\BddContext.cs" />
     <Compile Include="Models\Dal.cs" />
+    <Compile Include="Models\GestionViewModel.cs" />
     <Compile Include="Models\IDal.cs" />
     <Compile Include="Models\Emplacement.cs" />
     <Compile Include="Models\InitialiseCamping.cs" />
@@ -195,9 +196,7 @@
     <Content Include="Views\Index\Index.cshtml" />
     <Content Include="Views\Gestion\Gestion.cshtml" />
     <Content Include="Views\Reservation\Reservation.cshtml" />
-    <Content Include="Views\Gestion\GestionReservation.cshtml" />
     <Content Include="Views\Utilisateur\Inscription.cshtml" />
-    <Content Include="Views\Gestion\GestionUtilisateur.cshtml" />
     <Content Include="Views\Shared\_LayoutInscription.cshtml" />
     <Content Include="Views\Index\Contact.cshtml" />
     <Content Include="Views\Shared\PiedPage.cshtml" />

@@ -28,33 +28,6 @@
     <script type="text/javascript" src="../../Scripts/jquery.validate-vsdoc.js"></script>
     <script type="text/javascript" src="../../Scripts/jquery.validate.unobtrusive.js"></script>
 
-    <script type="text/javascript">
-        $(document).ready(function () {
-            jQuery('#camera_wrap').camera({
-                loader: false,
-                pagination: false,
-                minHeight: '444',
-                thumbnails: false,
-                height: '48.375%',
-                caption: true,
-                navigation: true,
-                fx: 'mosaic'
-            });
-            /*carousel*/
-            var owl = $("#owl");
-            owl.owlCarousel({
-                items: 2, //10 items above 1000px browser width
-                itemsDesktop: [995, 2], //5 items between 1000px and 901px
-                itemsDesktopSmall: [767, 2], // betweem 900px and 601px
-                itemsTablet: [700, 2], //2 items between 600 and 0
-                itemsMobile: [479, 1], // itemsMobile disabled - inherit from itemsTablet option
-                navigation: true,
-                pagination: false
-            });
-            $().UItoTop({ easingType: 'easeOutQuart' });
-        });
-    </script>
-
 
 
 
@@ -71,7 +44,16 @@
                                 <li><a href="@Url.Action("Index","Index")">Accueil</a></li>
                                 <li class="current"><a href="@Url.Action("Reservation","Reservation")">Réservations</a></li>
                                 <li><a href="index-2.html">Offres speciales</a></li>
-                                <li><a href="@Url.Action("Inscription", "Utilisateur")">S'inscrire</a></li>
+                                <li>
+                                    @if (!HttpContext.Current.User.Identity.IsAuthenticated)
+                                    {
+                                        <a href="@Url.Action("Inscription", "Utilisateur")">S'inscrire</a>
+                                    }
+                                    else
+                                    {
+                                        <a href="@Url.Action("Gestion", "Gestion")">Gestion du compte</a>
+
+                                    }
                                 <li><a href="@Url.Action("Contact", "Index")">Contacts</a></li>
                             </ul>
                         </nav>
@@ -81,7 +63,7 @@
                 <div class="grid_12">
                     <h1>
                         <a href="index.html">
-                            <img src="../../Images/logo.png" alt="Your Happy Family">
+                            <img src="../../Images/logo.png">
                         </a>
                     </h1>
                 </div>
